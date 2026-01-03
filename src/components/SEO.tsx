@@ -13,8 +13,6 @@ export default function SEO({
 }: SEOProps) {
   const fullTitle = `${title} | Last but not least Blog`;
 
-  console.log("SEO render:", { fullTitle, description, type });
-
   return (
     <Helmet>
       <title>{fullTitle}</title>

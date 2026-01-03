@@ -10,7 +10,7 @@ export default function Home() {
         title="Home"
         description="Learning Bevy & Rust - A blog about game development and programming"
       />
-      <div className="max-w-3xl mx-auto space-y-6">
+      <div className="max-w-3xl mx-auto flex flex-col space-y-8">
         {posts.map((post) => (
           <Link key={post.id} to={`/post/${post.id}`}>
             <Card className="hover:bg-accent transition-colors cursor-pointer">

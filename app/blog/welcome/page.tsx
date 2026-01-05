@@ -1,4 +1,4 @@
-import Welcome from "@/markdown/welcome.md";
+import Welcome from "@/public/welcome.md";
 
 export default function Session2Page() {
   return <Welcome />;

@@ -23,9 +23,6 @@ importers:
       '@types/react-syntax-highlighter':
         specifier: ^15.5.13
         version: 15.5.13
-      blog:
-        specifier: 'link:'
-        version: 'link:'
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1

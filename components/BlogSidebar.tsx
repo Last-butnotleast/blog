@@ -1,44 +1,85 @@
+import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+
+function SidebarContent() {
+  return (
+    <div className="space-y-6">
+      <div className="space-y-3">
+        <h3 className="font-semibold text-sm text-foreground">Recent Posts</h3>
+        <nav className="space-y-2">
+          <a
+            href="/blog/session-1"
+            className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+          >
+            Session 2 - ECS Basics
+          </a>
+          <a
+            href="/blog/welcome"
+            className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+          >
+            Session 1 - Getting Started
+          </a>
+        </nav>
+      </div>
+
+      <div className="pt-6 border-t border-border">
+        <h3 className="font-semibold text-sm text-foreground mb-3">
+          Categories
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+            Bevy
+          </span>
+          <span className="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+            Rust
+          </span>
+          <span className="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+            ECS
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function BlogSidebar() {
   return (
     <aside className="hidden lg:block w-64 shrink-0">
-      <div className="sticky top-24 space-y-6">
-        <div className="space-y-3">
-          <h3 className="font-semibold text-sm text-foreground">
-            Recent Posts
-          </h3>
-          <nav className="space-y-2">
-            <a
-              href="/blog/session-1"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
-            >
-              Session 2 - ECS Basics
-            </a>
-            <a
-              href="/blog/welcome"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
-            >
-              Session 1 - Getting Started
-            </a>
-          </nav>
-        </div>
-
-        <div className="pt-6 border-t border-border">
-          <h3 className="font-semibold text-sm text-foreground mb-3">
-            Categories
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            <span className="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-              Bevy
-            </span>
-            <span className="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-              Rust
-            </span>
-            <span className="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-              ECS
-            </span>
-          </div>
-        </div>
+      <div className="sticky top-24">
+        <SidebarContent />
       </div>
     </aside>
+  );
+}
+
+export function MobileBlogSidebar() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline" size="icon">
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Open menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left" className="w-75 sm:w-100">
+        <SheetHeader>
+          <SheetTitle>Menu</SheetTitle>
+          <SheetDescription>
+            Navigate through blog posts and categories
+          </SheetDescription>
+        </SheetHeader>
+        <div className="mt-6 p-4">
+          <SidebarContent />
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 }
